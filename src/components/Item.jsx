@@ -3,7 +3,7 @@ import React from 'react';
 function Item({ item, deleteItem, editItem }) {
   return (
     <li>
-      {item.value}
+      <span>{item.value}</span>
       <button onClick={() => editItem(item)}>Editar</button>
       <button onClick={() => deleteItem(item.id)}>Eliminar</button>
     </li>

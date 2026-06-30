@@ -13,8 +13,8 @@ function Form({ addOrUpdateItem, itemToEdit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (inputValue.trim()) {
-      addOrUpdateItem(inputValue);
+    if (inputValue.trim() !== "") {
+      addOrUpdateItem(inputValue.trim());
       setInputValue("");
     }
   };
@@ -25,8 +25,11 @@ function Form({ addOrUpdateItem, itemToEdit }) {
         type="text"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
+        placeholder="Escribe algo..."
       />
-      <button type="submit">{itemToEdit ? 'Actualizar' : 'Agregar'}</button>
+      <button type="submit">
+        {itemToEdit ? "Actualizar" : "Agregar"}
+      </button>
     </form>
   );
 }
