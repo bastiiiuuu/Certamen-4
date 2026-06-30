@@ -109,3 +109,13 @@ li button:last-of-type {
 li button:last-of-type:hover {
   background-color: #dc2626;
 }
+.counter {
+  background-color: #334155;
+  color: #e0e7ff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.05rem;
+}

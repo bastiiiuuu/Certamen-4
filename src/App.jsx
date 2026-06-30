@@ -27,7 +27,9 @@ function App() {
   };
 
   const deleteItem = (id) => {
-    setItems(items.filter(item => item.id !== id));
+    if (window.confirm("¿Estás seguro de que quieres eliminar este elemento?")) {
+      setItems(items.filter(item => item.id !== id));
+    }
   };
 
   const editItem = (item) => {
@@ -37,8 +39,18 @@ function App() {
   return (
     <div className="App">
       <h1>CRUD con LocalStorage</h1>
+
       <Form addOrUpdateItem={addOrUpdateItem} itemToEdit={itemToEdit} />
-      <List items={items} deleteItem={deleteItem} editItem={editItem} />
+
+      <div className="counter">
+        Total: {items.length} elemento{items.length !== 1 ? 's' : ''}
+      </div>
+
+      <List 
+        items={items} 
+        deleteItem={deleteItem} 
+        editItem={editItem} 
+      />
     </div>
   );
 }

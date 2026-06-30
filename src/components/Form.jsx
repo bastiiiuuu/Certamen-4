@@ -13,10 +13,14 @@ function Form({ addOrUpdateItem, itemToEdit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (inputValue.trim() !== "") {
-      addOrUpdateItem(inputValue.trim());
-      setInputValue("");
+
+    if (inputValue.trim() === "") {
+      alert("Por favor escribe algo antes de agregar.");
+      return;
     }
+
+    addOrUpdateItem(inputValue.trim());
+    setInputValue("");
   };
 
   return (
