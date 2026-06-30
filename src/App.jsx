@@ -10,6 +10,7 @@ function App() {
   });
 
   const [itemToEdit, setItemToEdit] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     localStorage.setItem("items", JSON.stringify(items));
@@ -22,7 +23,7 @@ function App() {
       ));
       setItemToEdit(null);
     } else {
-      setItems([...items, { id: Date.now(), value }]);
+      setItems([...items, { id: Date.now(), value, completed: false }]);
     }
   };
 
@@ -36,9 +37,26 @@ function App() {
     setItemToEdit(item);
   };
 
+  const toggleComplete = (id) => {
+    setItems(items.map(item =>
+      item.id === id ? { ...item, completed: !item.completed } : item
+    ));
+  };
+
+  const clearAll = () => {
+    if (window.confirm("¿Estás seguro de que quieres borrar TODOS los elementos?")) {
+      setItems([]);
+    }
+  };
+
+  // Filtrado por búsqueda
+  const filteredItems = items.filter(item =>
+    item.value.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="App">
-      <h1>CRUD con LocalStorage</h1>
+      <h1>Certamen CRUD</h1>
 
       <Form addOrUpdateItem={addOrUpdateItem} itemToEdit={itemToEdit} />
 
@@ -46,10 +64,27 @@ function App() {
         Total: {items.length} elemento{items.length !== 1 ? 's' : ''}
       </div>
 
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Buscar..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="search-input"
+        />
+
+        {items.length > 0 && (
+          <button onClick={clearAll} className="clear-all-btn">
+            Borrar todo
+          </button>
+        )}
+      </div>
+
       <List 
-        items={items} 
+        items={filteredItems} 
         deleteItem={deleteItem} 
-        editItem={editItem} 
+        editItem={editItem}
+        toggleComplete={toggleComplete}
       />
     </div>
   );
