@@ -1,0 +1,141 @@
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #0f172a; /* Fondo oscuro sólido */
+  color: #e2e8f0;
+  padding: 40px 20px;
+}
+
+.App {
+  max-width: 650px;
+  margin: 0 auto;
+  background: #1e293b; /* Gris azulado sólido */
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  text-align: center;
+  color: #60a5fa; /* Azul sólido */
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* Formulario */
+form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+input {
+  flex: 1;
+  padding: 14px 18px;
+  border: 2px solid #475569;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #334155;
+  color: #e2e8f0;
+}
+
+input:focus {
+  outline: none;
+  border-color: #60a5fa;
+}
+
+button {
+  padding: 14px 24px;
+  background: #3b82f6; /* Azul sólido principal */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #2563eb;
+}
+
+/* Lista */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #334155;
+  padding: 16px 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #475569;
+}
+
+li span {
+  flex: 1;
+  font-size: 1.05rem;
+  color: #e2e8f0;
+}
+
+/* Botones de acción - solo 2 colores extra */
+li button {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  margin-left: 10px;
+  border-radius: 6px;
+}
+
+li button:first-of-type {
+  background: #eab308; /* Amarillo sólido para Editar */
+  color: #1e293b;
+}
+
+li button:first-of-type:hover {
+  background: #ca8a04;
+}
+
+li button:last-of-type {
+  background: #ef4444; /* Rojo sólido para Eliminar */
+  color: white;
+}
+
+li button:last-of-type:hover {
+  background: #dc2626;
+}
+
+/* Guía CRUD - más simple */
+.crud-guide {
+  margin-top: 40px;
+  padding-top: 25px;
+  border-top: 1px solid #475569;
+}
+
+.crud-guide h3 {
+  text-align: center;
+  margin-bottom: 18px;
+  color: #94a3b8;
+  font-size: 1.1rem;
+}
+
+.crud-card {
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  font-weight: 500;
+  color: #e2e8f0;
+  background: #334155;
+  border-left: 4px solid #60a5fa;
+}
+
+.crud-card strong {
+  color: #60a5fa;
+}
